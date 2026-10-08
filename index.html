@@ -3,29 +3,139 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fluxwave Production</title>
-  <meta name="description" content="Official website of Fluxwave Production and its software products.">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Fluxwave Production builds simple, privacy-focused software for everyday digital tasks.">
+  <title>Fluxwave Production — Software, made simple.</title>
   <style>
-    body{margin:0;font-family:Arial,sans-serif;background:#f5f8ff;color:#172033;display:grid;place-items:center;min-height:100vh}
-    main{width:min(720px,calc(100% - 48px));margin:24px;padding:40px;border-radius:28px;background:rgba(255,255,255,.9);box-shadow:0 20px 60px rgba(30,60,120,.12);box-sizing:border-box}
-    h1{margin:0 0 12px;font-size:36px}
-    h2{margin:30px 0 12px;font-size:22px}
-    p{line-height:1.6;color:#56627a}
-    ul{padding-left:22px;line-height:2}
-    a{color:#315ee8;text-decoration:none;font-weight:600}
+    :root{
+      --bg:#070b16;--panel:#0d1324;--panel2:#111a30;--text:#f7f9ff;--muted:#9ba8c0;
+      --line:rgba(255,255,255,.09);--accent:#6d7cff;--accent2:#45d6c8;--shadow:0 24px 70px rgba(0,0,0,.35)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at 15% 0%,rgba(109,124,255,.18),transparent 34%),radial-gradient(circle at 85% 18%,rgba(69,214,200,.10),transparent 30%),var(--bg);
+      color:var(--text);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em}
+    .mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#07101c;font-weight:900}
+    .navlinks{display:flex;gap:26px;color:var(--muted);font-size:14px}
+    .navlinks a:hover{color:var(--text)}
+    .hero{padding:82px 0 92px;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.035);color:#cbd3e7;font-size:13px}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 14px var(--accent2)}
+    h1{font-size:clamp(48px,7vw,82px);line-height:.98;letter-spacing:-.065em;margin:22px 0}
+    .gradient{background:linear-gradient(100deg,#fff 15%,#9ca8ff 55%,#65e1d3);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{max-width:650px;color:var(--muted);font-size:18px;margin:0 0 30px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:12px;border:1px solid var(--line);font-weight:700;font-size:14px;background:rgba(255,255,255,.04)}
+    .btn.primary{background:#fff;color:#0a0f1c;border-color:#fff}
+    .visual{position:relative;min-height:350px;display:grid;place-items:center}
+    .orb{width:280px;height:280px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#aeb6ff 0,#6d7cff 24%,#28345f 58%,#11182d 74%);box-shadow:0 0 90px rgba(109,124,255,.28),inset -30px -30px 70px rgba(0,0,0,.35)}
+    .float{position:absolute;border:1px solid var(--line);background:rgba(13,19,36,.78);backdrop-filter:blur(18px);padding:15px 18px;border-radius:16px;box-shadow:var(--shadow);font-size:13px}
+    .f1{top:28px;right:4px}.f2{bottom:25px;left:0}.f3{top:48%;right:-18px}
+    section{padding:76px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:28px}
+    h2{font-size:36px;letter-spacing:-.04em;margin:0}
+    .section-head p{max-width:500px;color:var(--muted);margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{padding:25px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));transition:.2s transform,.2s border-color}
+    .card:hover{transform:translateY(-4px);border-color:rgba(109,124,255,.45)}
+    .icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#171f39;font-size:20px;margin-bottom:22px}
+    .card h3{margin:0 0 7px;font-size:20px;letter-spacing:-.02em}
+    .card p{margin:0 0 18px;color:var(--muted);font-size:14px}
+    .tag{display:inline-block;font-size:12px;color:#c9d0e3;border:1px solid var(--line);border-radius:999px;padding:5px 9px}
+    .privacy{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .privacy .card{display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .link{color:#aeb8ff;font-weight:700;font-size:14px;white-space:nowrap}
+    footer{padding:35px 0 50px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:800px){
+      .navlinks{display:none}.hero{grid-template-columns:1fr;padding:55px 0 65px}.visual{min-height:280px}
+      .grid{grid-template-columns:1fr}.privacy{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:10px}
+      h1{font-size:56px}.f3{right:0}
+    }
   </style>
 </head>
 <body>
-<main>
-  <h1>Fluxwave Production</h1>
-  <p>Official website for Fluxwave Production and its software products.</p>
-  <h2>Our Products</h2>
-  <ul>
-    <li><strong>Cash Book - Expense & Budget</strong> — personal finance and expense management app</li>
-    <li><strong>Compressor Pro - All In One</strong> — offline photo, video and PDF compressor</li>
-    <li><strong>PDF Pro</strong> — PDF tools and document management app</li>
-  </ul>
-  <p><a href="https://legionashutosh.github.io/cashbook-privacy/cash-book-privacy.html">Cash Book Privacy Policy</a></p>
-</main>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#"><span class="mark">F</span><span>Fluxwave Production</span></a>
+      <div class="navlinks"><a href="#products">Products</a><a href="#about">About</a><a href="#privacy">Privacy</a></div>
+    </nav>
+
+    <main>
+      <section class="hero" style="border-top:0">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Independent software studio</span>
+          <h1>Software, <span class="gradient">made simple.</span></h1>
+          <p>Fluxwave Production creates focused Android apps that solve everyday problems with clean interfaces, practical features and privacy-conscious design.</p>
+          <div class="actions"><a class="btn primary" href="#products">Explore products</a><a class="btn" href="#about">About Fluxwave</a></div>
+        </div>
+        <div class="visual" aria-hidden="true">
+          <div class="orb"></div>
+          <div class="float f1">⚡ Fast & focused</div>
+          <div class="float f2">🔒 Privacy-conscious</div>
+          <div class="float f3">✦ Built for Android</div>
+        </div>
+      </section>
+
+      <section id="products">
+        <div class="section-head">
+          <h2>Our products</h2>
+          <p>A growing collection of lightweight tools designed to stay useful, straightforward and easy to use.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="icon">₹</div>
+            <h3>Cash Book</h3>
+            <p>Simple expense and budget management for keeping everyday money organized.</p>
+            <span class="tag">Finance · Android</span>
+          </article>
+          <article class="card">
+            <div class="icon">↗</div>
+            <h3>Compressor Pro</h3>
+            <p>Compress photos, videos and PDFs directly on your device without uploading files to a server.</p>
+            <span class="tag">Utility · Offline</span>
+          </article>
+          <article class="card">
+            <div class="icon">PDF</div>
+            <h3>PDF Pro</h3>
+            <p>An all-in-one PDF workspace focused on viewing, creating, scanning, editing and document tools.</p>
+            <span class="tag">Productivity · Android</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-head">
+          <h2>Built with purpose.</h2>
+          <p>We focus on useful software instead of unnecessary complexity. Each product is designed around a clear job and a simple user experience.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><div class="icon">01</div><h3>Useful first</h3><p>Features are built around real everyday workflows rather than clutter.</p></div>
+          <div class="card"><div class="icon">02</div><h3>Privacy-minded</h3><p>Where possible, processing happens locally on the device instead of requiring file uploads.</p></div>
+          <div class="card"><div class="icon">03</div><h3>Simple design</h3><p>Clean layouts, understandable controls and lightweight experiences are the priority.</p></div>
+        </div>
+      </section>
+
+      <section id="privacy">
+        <div class="section-head">
+          <h2>Privacy & legal</h2>
+          <p>Privacy information for our published products is provided through dedicated policy pages.</p>
+        </div>
+        <div class="privacy">
+          <div class="card"><div><strong>Cash Book</strong><br><span style="color:var(--muted);font-size:13px">Privacy Policy</span></div><a class="link" href="https://legionashutosh.github.io/cashbook-privacy/cash-book-privacy.html">View policy →</a></div>
+          <div class="card"><div><strong>Compressor Pro</strong><br><span style="color:var(--muted);font-size:13px">Privacy Policy</span></div><a class="link" href="https://legionashutosh.github.io/compressor-pro-privacy/">View policy →</a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 Fluxwave Production</span>
+      <span>Independent software studio · India</span>
+    </footer>
+  </div>
 </body>
 </html>
